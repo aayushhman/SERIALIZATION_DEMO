@@ -12,14 +12,27 @@ namespace SERIALIZATION_DEMO
     {
         static void Main(string[] args)
         {
-            string path = @"D:\Aayush new\sample.png";
-            Employee emp = new Employee(123,"Aayush");
+            //serialization
+
+            //string path = @"D:\Aayush new\sample.png";
+            //Employee emp = new Employee(123,"Aayush");
+            //FileStream stream = new FileStream(path,FileMode.OpenOrCreate);
+            //BinaryFormatter bf = new BinaryFormatter();
+            //bf.Serialize(stream, emp);
+            //stream.Close();
+            //Console.WriteLine("FIle created sucessfully..");
+            //Console.ReadLine();
+            //De-serialization
+            string path = @"D:\Aayush new\sample.txt";
             FileStream stream = new FileStream(path,FileMode.OpenOrCreate);
             BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(stream, emp);
+            Employee emp = (Employee)bf.Deserialize(stream);
+            Console.WriteLine("Employee Id:"+emp.Id);
+            Console.WriteLine("Employee Name:" + emp.Name);
             stream.Close();
-            Console.WriteLine("FIle created sucessfully..");
             Console.ReadLine();
+
+
         }
     }
 }
